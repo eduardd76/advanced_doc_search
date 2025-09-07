@@ -1,0 +1,126 @@
+# Advanced Document Search Configuration
+
+# Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  reload: false
+
+# Storage Configuration
+storage:
+  base_dir: "./data"
+  indexes_dir: "./data/indexes"
+  models_dir: "./data/models"
+  cache_dir: "./data/cache"
+  temp_dir: "./data/temp"
+
+# BM25 Configuration
+bm25:
+  k1: 1.6
+  b: 0.75
+  epsilon: 0.25
+  min_doc_freq: 3
+  max_doc_freq: 0.8
+  hash_features: 262144
+  weight_precision: "float16"
+  use_idf: true
+
+# Dense Retrieval Configuration
+dense_retrieval:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  embedding_dim: 384
+  batch_size: 32
+  normalize_embeddings: true
+  device: "cpu"  # Change to "cuda" if GPU available
+  faiss_index_type: "IndexFlatIP"  # Inner Product for normalized embeddings
+
+# Cross-Encoder Configuration
+cross_encoder:
+  model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  max_candidates: 100
+  batch_size: 16
+  device: "cpu"
+
+# Hybrid Retrieval Configuration
+hybrid:
+  use_rrv_fusion: true
+  rrv_k: 60
+  bm25_weight: 0.5
+  dense_weight: 0.5
+  final_rerank_size: 50
+  min_score_threshold: 0.1
+
+# Document Processing Configuration
+document_processing:
+  supported_formats: [".pdf", ".docx", ".txt", ".md", ".epub", ".rtf", ".html"]
+  pdf_extractors: ["pymupdf", "pdfplumber", "pdfminer"]
+  ocr_enabled: true
+  ocr_languages: ["eng"]
+  extract_tables: true
+  extract_images: true
+  preserve_formatting: true
+
+# Chunking Configuration
+chunking:
+  strategy: "structure_aware"
+  base_chunk_size: 512
+  overlap_percentage: 25
+  min_chunk_size: 50
+  max_chunk_size: 1024
+  dynamic_overlap: true
+  preserve_headers: true
+  sentence_boundary: true
+  dedup_threshold: 0.9
+
+# Query Processing Configuration
+query_processing:
+  enable_acronym_expansion: true
+  enable_synonym_expansion: true
+  enable_query_rewrite: false  # Optional LLM rewrite
+  max_query_length: 512
+  min_query_length: 3
+  stopwords_removal: true
+  lemmatization: true
+  case_sensitive: false
+
+# Text Processing Configuration
+text_processing:
+  language_detection: true
+  unicode_normalization: true
+  remove_boilerplate: true
+  min_text_length: 20
+  max_text_length: 100000
+
+# Evaluation Configuration
+evaluation:
+  metrics: ["recall@5", "recall@10", "mrr", "ndcg@10", "answer_exactness"]
+  test_set_size: 35
+  cross_validation_folds: 5
+  benchmark_queries_file: "./data/benchmark_queries.json"
+
+# Cache Configuration
+cache:
+  enable_query_cache: true
+  enable_result_cache: true
+  cache_size_mb: 512
+  cache_ttl_hours: 24
+  embedding_cache: true
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/app.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# Performance Configuration
+performance:
+  max_concurrent_requests: 10
+  request_timeout_seconds: 300
+  indexing_batch_size: 1000
+  max_memory_usage_gb: 8
+  enable_memory_mapping: true
+  enable_multiprocessing: true
+  n_workers: 4

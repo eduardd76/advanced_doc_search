@@ -1,0 +1,311 @@
+/* Beautiful Light Yellow Theme - Global Styles */
+
+:root {
+  /* Color Palette - Very Light Yellow Theme */
+  --bg-primary: #fffef7; /* Very light cream yellow background */
+  --bg-secondary: #fffbeb; /* Ultra light yellow secondary background */
+  --bg-accent: #f59e0b; /* Golden yellow for buttons */
+  --bg-card: #fefce8; /* Light yellow for cards */
+  --bg-hover: #fef08a; /* Visible light yellow hover */
+  
+  --text-primary: #000000; /* Pure black for all text */
+  --text-secondary: #000000; /* Pure black for secondary text */
+  --text-accent: #d97706; /* Orange accent for special elements */
+  --text-light: #1f2937; /* Dark gray for subtle text */
+  --text-white: #ffffff; /* White for buttons only */
+  
+  --border-light: #fef3c7; /* Light yellow border */
+  --border-medium: #f59e0b; /* Medium yellow border */
+  --border-dark: #d97706; /* Dark yellow border */
+  
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.06);
+  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  --gradient-primary: linear-gradient(135deg, #fffef7 0%, #fffbeb 100%); /* Very light yellow gradient */
+  --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --gradient-card: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); /* Light yellow to medium light yellow */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--gradient-primary);
+  color: #000000;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Universal black text rule - all elements except buttons */
+* {
+  color: #000000 !important;
+}
+
+/* Override white text classes to be black for visibility */
+.text-white {
+  color: #000000 !important;
+}
+
+/* Override for button text to remain white */
+.btn-primary, 
+.btn-primary *,
+button[type="submit"],
+button[type="submit"] *,
+button:not(.btn-secondary),
+button:not(.btn-secondary) * {
+  color: #ffffff !important;
+}
+
+.btn-secondary {
+  color: #000000 !important;
+}
+
+/* Beautiful scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-dark);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background: var(--gradient-accent);
+  color: var(--text-white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 2px solid var(--border-light);
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-hover);
+}
+
+/* Card styles */
+.card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-large);
+  border-color: var(--border-medium);
+}
+
+/* Input styles */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 14px;
+  background: #fef3c7;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--border-medium);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Typography - All Black Text */
+.heading-1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000000 !important;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.heading-2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000 !important;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.heading-3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000 !important;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.text-body {
+  font-size: 1rem;
+  color: #000000 !important;
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  color: #000000 !important;
+  line-height: 1.5;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-light);
+  border-top: 2px solid var(--bg-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status indicators */
+.status-success {
+  color: #10b981;
+  background: #ecfdf5;
+  border: 1px solid #d1fae5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-error {
+  color: #ef4444;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-warning {
+  color: var(--text-accent);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .heading-1 {
+    font-size: 2rem;
+  }
+  
+  .heading-2 {
+    font-size: 1.75rem;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}

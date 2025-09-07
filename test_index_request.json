@@ -1,0 +1,6 @@
+{
+  "name": "test",
+  "directory_paths": ["F:/Agentic_Apps/advanced-document-search/test_docs"],
+  "file_extensions": ["*.txt"],
+  "force_rebuild": true
+}

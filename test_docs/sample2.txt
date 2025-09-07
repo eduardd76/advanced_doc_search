@@ -1,0 +1,1 @@
+Natural language processing is a branch of artificial intelligence that helps computers understand and interpret human language. NLP techniques are used in chatbots, translation systems, and sentiment analysis applications.

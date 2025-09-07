@@ -1,0 +1,1 @@
+This is a sample document about artificial intelligence and machine learning. AI has revolutionized many industries including healthcare, finance, and transportation. Machine learning algorithms can learn from data and make predictions about future events.
